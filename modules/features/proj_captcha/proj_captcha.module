@@ -1,0 +1,8 @@
+<?php
+/**
+ * @file
+ * Code for the proj_captcha feature.
+ */
+
+include_once 'proj_captcha.admin.inc';
+include_once 'proj_captcha.features.inc';

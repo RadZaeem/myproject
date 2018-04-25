@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the proj_layout feature.
+ */
+
+include_once 'proj_layout.features.inc';
