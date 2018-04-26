@@ -3,8 +3,10 @@ source /host/settings.sh
 
 if [ -n "$REDIS_HOST" ];
 then
+
 	#drush="drush --root=$DRUPAL_DIR --yes"
 	$drush @local_proj dl redis
+	apt install php-redis
 	echo "
 // Redis settings
 \$conf['redis_client_interface'] = 'PhpRedis';
