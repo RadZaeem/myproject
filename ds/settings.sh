@@ -26,3 +26,6 @@ DBPORT=3306
 DBNAME=proj
 DBUSER=proj
 DBPASS=proj
+
+# If redis is to be used, put its hostname or IP address here
+REDIS_HOST=
