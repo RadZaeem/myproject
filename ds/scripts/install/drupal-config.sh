@@ -40,3 +40,18 @@ cat <<EOF > /etc/cron.d/drupal7
 
 0 * * * *    www-data    [ -x /usr/local/bin/drush ] && /usr/local/bin/drush @proj cron > /dev/null 2>&1
 EOF
+
+# configure redis
+if [ -z "$REDIS_HOST" ];
+then
+	drush @local_proj dl redis --yes
+	echo "
+// Redis settings
+$conf['redis_client_interface'] = 'PhpRedis';
+$conf['redis_client_host'] = '$REDIS_HOST';
+$conf['lock_inc'] = 'sites/all/modules/redis/redis.lock.inc';
+$conf['path_inc'] = 'sites/all/modules/redis/redis.path.inc';
+$conf['cache_backends'][] = 'sites/all/modules/redis/redis.autoload.inc';
+$conf['cache_default_class'] = 'Redis_Cache';
+" >> /host/var-www/proj/sites/default/settings.php 
+fi

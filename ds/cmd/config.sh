@@ -13,6 +13,7 @@ cmd_config() {
     ds inject install/drupal-install.sh
     ds inject install/drupal-config.sh
     ds inject install/drush-config.sh
+    ds inject install/redis-config.sh
     ds inject install/apache2.sh
     ds inject install/set-prompt.sh
     ds inject install/cache-on-ram.sh
