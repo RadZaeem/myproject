@@ -1,13 +1,8 @@
 # DrupalBox-Redis Example
 
 This docker-scripts demonstrates usage of Drupal Redis module with Redis docker-scripts container
+This is based on original dbox container.
 
-## Prerequisites
-Install docker-scripts container for wsproxy, mariadb, and redis container first
-Edit `/etc/hosts`, add this line
-```
-
-```
 
 
 
@@ -92,7 +87,29 @@ may break the application.
     `127.0.0.1 proj.example.org` and then try
     https://proj.example.org in browser.
 
+## Testing connection with Redis container
+Check whether Redis server's `keys` named `cache_boot` is actually used by Drupal.
+```
+# hostname of Redis server is 'redis'
+cd /var/ds/proj-example-org
+ds shell
+redis-cli -h redis 
+keys *cache_boot*
+exit
+```
 
+Example output
+```
+(proj-example-org)root@proj-example-org:/var/www
+==> # redis-cli -h redis
+redis:6379> keys *cache_boot*
+1) "3830eb70bda1d214ee12d28fbb4d30e1:cache_bootstrap:system_list"
+2) "3830eb70bda1d214ee12d28fbb4d30e1:cache_bootstrap:bootstrap_modules"
+3) "3830eb70bda1d214ee12d28fbb4d30e1:cache_bootstrap:module_implements"
+4) "3830eb70bda1d214ee12d28fbb4d30e1:cache_bootstrap:lookup_cache"
+5) "3830eb70bda1d214ee12d28fbb4d30e1:cache_bootstrap:_last_flush"
+6) "3830eb70bda1d214ee12d28fbb4d30e1:cache_bootstrap:hook_info"
+```
 ## Other commands
 
     ds help
