@@ -6,7 +6,7 @@ then
 
 	#drush="drush --root=$DRUPAL_DIR --yes"
 	$drush @local_proj dl redis
-	apt install php-redis
+	apt install -y php-redis
 	echo "
 // Redis settings
 \$conf['redis_client_interface'] = 'PhpRedis';
