@@ -27,5 +27,7 @@ DBNAME=proj
 DBUSER=proj
 DBPASS=proj
 
-# If redis is to be used, put its hostname or IP address here
-REDIS_HOST=
+# If you want to use Redis, put its hostname or IP address here
+# Else you can comment out this variable or set as empty.
+# Default value is 'redis'.
+REDIS_HOST=redis

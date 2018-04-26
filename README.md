@@ -1,14 +1,14 @@
-# DrupalBox
+# DrupalBox-Redis Example
 
-DrupalBox is a template Drupal project that can be used to seed
-(create) a new Drupal project quickly and easily.
+This docker-scripts demonstrates usage of Drupal Redis module with Redis docker-scripts container
 
-The new project will contain:
-- A Drupal profile.
-- Makefiles for downloading the Drupal core, all the needed modules,
-  libraries, patches, etc.
-- Docker scripts for installing an Ubuntu server with all the packages
-  and configurations needed for running a Drupal application.
+## Prerequisites
+Install docker-scripts container for wsproxy, mariadb, and redis container first
+Edit `/etc/hosts`, add this line
+```
+
+```
+
 
 
 ## Create a new project
@@ -17,7 +17,7 @@ A new project is created by renaming files of the template project and
 doing find/replace in them.
 
     ### clone fro github
-    git clone https://github.com/docker-scripts/dbox
+    git clone https://github.com/RadZaeem/dbox
     cp -a dbox myproject
     cd myproject/
     
