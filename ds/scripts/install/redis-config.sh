@@ -1,3 +1,4 @@
+#!/bin/bash -x
 source /host/settings.sh
 
 if [ -z "$REDIS_HOST" ];
