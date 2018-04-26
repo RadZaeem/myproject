@@ -4,7 +4,7 @@ source /host/settings.sh
 if [ -n "$REDIS_HOST" ];
 then
 
-	#drush="drush --root=$DRUPAL_DIR --yes"
+	drush="drush --root=$DRUPAL_DIR --yes"
 	$drush @local_proj dl redis
 	apt install -y php-redis
 	echo "
