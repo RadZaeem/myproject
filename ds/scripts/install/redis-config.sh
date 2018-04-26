@@ -1,7 +1,7 @@
 #!/bin/bash -x
 source /host/settings.sh
 
-if [ -z "$REDIS_HOST" ];
+if [ -n "$REDIS_HOST" ];
 then
 	drush="drush --root=$DRUPAL_DIR --yes"
 	$drush @local_proj dl redis
@@ -14,4 +14,7 @@ $conf['path_inc'] = 'sites/all/modules/redis/redis.path.inc';
 $conf['cache_backends'][] = 'sites/all/modules/redis/redis.autoload.inc';
 $conf['cache_default_class'] = 'Redis_Cache';
 " >> /host/var-www/proj/sites/default/settings.php 
+
+	service apache2 restart
 fi
+
