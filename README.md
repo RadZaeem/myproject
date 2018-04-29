@@ -4,6 +4,11 @@ This docker-scripts demonstrates usage of Drupal Redis module with Redis docker-
 
 This is based on original docker-scripts dbox container (https://github.com/docker-scripts/dbox)
 
+### Differences with original dbox container
+ - `settings.sh` has optional `REDIS_HOST` variable to specify Redis server hostname.
+   - By default it the value is `redis`
+ - `install/redis-config.sh` is injected during `ds config`
+   - checks whether `REDIS_HOST` is not empty, and if it is not empty, installs and configures Redis
 
 ## Install the DrupalBox-Redis Example
 
