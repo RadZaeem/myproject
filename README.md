@@ -6,9 +6,9 @@ This is based on original docker-scripts dbox container (https://github.com/dock
 
 ### Differences with original dbox container
  - `settings.sh` has optional `REDIS_HOST` variable to specify Redis server hostname.
-   - By default it the value is `redis`
+   - By default the value is `redis`
  - `install/redis-config.sh` is injected during `ds config`
-   - checks whether `REDIS_HOST` is not empty, and if it is not empty, installs and configures Redis
+   - If `REDIS_HOST` has a value (Redis server hostname), the script installs and configures Drupal to use Redis with said Redis server.
 
 ## Install the DrupalBox-Redis Example
 
@@ -20,6 +20,10 @@ This is based on original docker-scripts dbox container (https://github.com/dock
      + https://github.com/docker-scripts/wsproxy#installation
      + https://github.com/docker-scripts/mariadb#installation
 
+  - Install `redis`
+     + https://github.com/docker-scripts/redis#installation
+     + This container sets its hostname as `redis` by default. Hence no need to update its `settings.sh`.
+
 
   - Clone this repo to `opt/docker-scripts/myproject` like this:
 ```
@@ -28,9 +32,14 @@ This is based on original docker-scripts dbox container (https://github.com/dock
 
   - Create a directory for the container: `ds init myproject/ds @proj-example-org`
 
+  - `cd` to project directory
+```
+cd /var/ds/proj-example-org/
+```
+
   - Optional: Fix the settings if needed
 ```
-    cd /var/ds/proj-example-org/
+    
     vim settings.sh
 ```
 
