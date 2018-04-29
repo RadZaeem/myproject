@@ -27,7 +27,7 @@ This is based on original docker-scripts dbox container (https://github.com/dock
 
   - Clone this repo to `opt/docker-scripts/myproject` like this:
 ```
-    git clone https://github.com/radzaeem/myproject /opt/docker-scripts/myproject
+git clone https://github.com/radzaeem/myproject /opt/docker-scripts/myproject
 ```
 
   - Create a directory for the container: `ds init myproject/ds @proj-example-org`
@@ -39,8 +39,7 @@ cd /var/ds/proj-example-org/
 
   - Optional: Fix the settings if needed
 ```
-    
-    vim settings.sh
+vim settings.sh
 ```
 
   - Build image, create the container and configure it: 
